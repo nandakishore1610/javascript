@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operators practice</title>
+  </head>
+  <body>
+    <script>
+      //arithmetic operators practice
+      document.write("<h1>Arithmetic operators</h1><br>");
+      let x = 10;
+      let y = 3;
+
+      // Addition
+      let addition = x + y;
+
+      // Subtraction
+      let subtraction = x - y;
+
+      // Multiplication
+      let multiplication = x * y;
+
+      // Division
+      let division = x / y;
+
+      // Modulus
+      let remainder = x % y;
+
+      // Exponentiation
+      let power = x ** y;
+
+      document.write("Addition = " + addition + "<br>");
+      document.write("Subtraction = " + subtraction + "<br>");
+      document.write("Multiplication = " + multiplication + "<br>");
+      document.write("Division = " + division + "<br>");
+      document.write("Modulus = " + remainder + "<br>");
+      document.write("Power = " + power + "<br>");
+
+      //comparision operators practice
+      document.write("<h1>Comparision Operators</h1> <br>");
+      let a = 10;
+      let b = "10";
+      let c = 20;
+
+      // Equal
+      document.write("a == b : " + (a == b) + "<br>");
+
+      // Strict Equal
+      document.write("a === b : " + (a === b) + "<br>");
+
+      // Not Equal
+      document.write("a != c : " + (a != c) + "<br>");
+
+      // Strict Not Equal
+      document.write("a !== b : " + (a !== b) + "<br>");
+
+      // Greater Than
+      document.write("c > a : " + (c > a) + "<br>");
+
+      // Less Than
+      document.write("a < c : " + (a < c) + "<br>");
+
+      // Greater Than or Equal
+      document.write("a >= 10 : " + (a >= 10) + "<br>");
+
+      // Less Than or Equal
+      document.write("a <= 10 : " + (a <= 10) + "<br>");
+
+      //Logical operators practice
+      document.write("<h1>Logical Operators</h1> <br>");
+
+      let age = 21;
+      let salary = 50000;
+      let isStudent = true;
+
+      // Logical AND
+      let andResult = age >= 18 && salary >= 30000;
+
+      // Logical OR
+      let orResult = age >= 18 || salary >= 100000;
+
+      // Logical NOT
+      let notResult = !isStudent;
+
+      document.write("AND (&&) = " + andResult + "<br>");
+      document.write("OR (||) = " + orResult + "<br>");
+      document.write("NOT (!) = " + notResult + "<br>");
+
+      document.write("Initial value = " + a + "<br>");
+
+      //Assignment Operators practice
+      document.write("<h1>Assignment Operators</h1> <br>");
+
+      // Addition assignment
+      a += 5;
+      document.write("After += 5 : " + a + "<br>");
+
+      // Subtraction assignment
+      a -= 3;
+      document.write("After -= 3 : " + a + "<br>");
+
+      // Multiplication assignment
+      a *= 2;
+      document.write("After *= 2 : " + a + "<br>");
+
+      // Division assignment
+      a /= 2;
+      document.write("After /= 2 : " + a + "<br>");
+
+      // Modulus assignment
+      a %= 4;
+      document.write("After %= 4 : " + a + "<br>");
+
+      // Exponentiation assignment
+      a **= 2;
+      document.write("After **= 2 : " + a + "<br>");
+
+
+      //Bitwise Operators practice
+      document.write("<h1>Bitwise Operators</h1> <br>");
+
+      a = 5;
+      b = 3;
+
+      // Bitwise AND
+      andResult = a & b;
+
+      // Bitwise OR
+      orResult = a | b;
+
+      // Bitwise XOR
+      xorResult = a ^ b;
+
+      // Bitwise NOT
+      notResult = ~a;
+
+      // Left Shift
+      let leftShift = a << 1;
+
+      // Right Shift
+      let rightShift = a >> 1;
+
+      // Zero-fill Right Shift
+      let zeroFillShift = a >>> 1;
+
+      document.write("a & b = " + andResult + "<br>");
+      document.write("a | b = " + orResult + "<br>");
+      document.write("a ^ b = " + xorResult + "<br>");
+      document.write("~a = " + notResult + "<br>");
+      document.write("a << 1 = " + leftShift + "<br>");
+      document.write("a >> 1 = " + rightShift + "<br>");
+      document.write("a >>> 1 = " + zeroFillShift + "<br>");
+
+      document.write("<h1> unary operator</h1> <br>");
+      var u=1;
+      u++;
+      document.write("u value:",u,"<br>");
+
+      console.log(window);
+
+
+    </script>
+  </body>
+</html>
