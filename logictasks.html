@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FSD_61 — 16 Logics</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #eef1f5;
+        color: #222;
+        padding: 2rem 1rem 3rem;
+      }
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 0.3rem;
+      }
+      p.sub {
+        text-align: center;
+        color: #666;
+        margin-top: 0;
+        margin-bottom: 2rem;
+      }
+      .grid {
+        max-width: 950px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+      @media (max-width: 680px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .card {
+        background: #fff;
+        border-radius: 8px;
+        padding: 1rem 1.1rem;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      }
+      .card h2 {
+        font-size: 1rem;
+        margin: 0 0 0.7rem;
+        color: #2c3e50;
+      }
+      .card input {
+        width: 100%;
+        padding: 0.4rem 0.5rem;
+        margin-bottom: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 0.9rem;
+      }
+      .card button {
+        width: 100%;
+        padding: 0.5rem;
+        background: #2c7a7b;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        cursor: pointer;
+      }
+      .card button:hover {
+        background: #256667;
+      }
+      .out {
+        margin-top: 0.6rem;
+        font-weight: bold;
+        color: #2c7a7b;
+        min-height: 1.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Logic Programs</h1>
+    
+
+    <div class="grid">
+      <div class="card">
+        <h2>1. Average of 3 Numbers</h2>
+        <input type="number" id="a1" /><input type="number" id="b1" /><input
+          type="number"
+          id="c1"
+        />
+        <button onclick="q1()">Calculate</button>
+        <div class="out" id="out1"></div>
+      </div>
+
+      <div class="card">
+        <h2>2. Average of 3 Numbers (DOM)</h2>
+        <input type="number" id="a2" /><input type="number" id="b2" /><input
+          type="number"
+          id="c2"
+        />
+        <button onclick="q2()">Calculate</button>
+        <div class="out" id="out2"></div>
+      </div>
+
+      <div class="card">
+        <h2>3. Sum of First n Natural Numbers</h2>
+        <input type="number" id="n3" />
+        <button onclick="q3()">Calculate</button>
+        <div class="out" id="out3"></div>
+      </div>
+
+      <div class="card">
+        <h2>4. Average of First n Natural Numbers</h2>
+        <input type="number" id="n4" />
+        <button onclick="q4()">Calculate</button>
+        <div class="out" id="out4"></div>
+      </div>
+
+      <div class="card">
+        <h2>5. Profit Percentage</h2>
+        <input type="number" id="cp5" placeholder="Cost Price" />
+        <input type="number" id="sp5" placeholder="Selling Price" />
+        <button onclick="q5()">Calculate</button>
+        <div class="out" id="out5"></div>
+      </div>
+
+      <div class="card">
+        <h2>6. Simple Interest</h2>
+        <input type="number" id="p6" placeholder="Principal" />
+        <input type="number" id="r6" placeholder="Rate" />
+        <input type="number" id="t6" placeholder="Time" />
+        <button onclick="q6()">Calculate</button>
+        <div class="out" id="out6"></div>
+      </div>
+
+      <div class="card">
+        <h2>7. Missing Angle of a Triangle</h2>
+        <input type="number" id="ang1" placeholder="Angle 1" />
+        <input type="number" id="ang2" placeholder="Angle 2" />
+        <button onclick="q7()">Calculate</button>
+        <div class="out" id="out7"></div>
+      </div>
+
+      <div class="card">
+        <h2>8. Last Digit of a Number</h2>
+        <input type="number" id="n8" />
+        <button onclick="q8()">Calculate</button>
+        <div class="out" id="out8"></div>
+      </div>
+
+      <div class="card">
+        <h2>9. Remove Last Digit</h2>
+        <input type="number" id="n9" />
+        <button onclick="q9()">Calculate</button>
+        <div class="out" id="out9"></div>
+      </div>
+
+      <div class="card">
+        <h2>10. First Digit (3-digit Number)</h2>
+        <input type="number" id="n10" />
+        <button onclick="q10()">Calculate</button>
+        <div class="out" id="out10"></div>
+      </div>
+
+      <div class="card">
+        <h2>11. First Digit (5-digit Number)</h2>
+        <input type="number" id="n11" />
+        <button onclick="q11()">Calculate</button>
+        <div class="out" id="out11"></div>
+      </div>
+
+      <div class="card">
+        <h2>12. Celsius to Fahrenheit</h2>
+        <input type="number" id="c12" />
+        <button onclick="q12()">Convert</button>
+        <div class="out" id="out12"></div>
+      </div>
+
+      <div class="card">
+        <h2>13. Fahrenheit to Celsius</h2>
+        <input type="number" id="f13" />
+        <button onclick="q13()">Convert</button>
+        <div class="out" id="out13"></div>
+      </div>
+
+      <div class="card">
+        <h2>14. Gross Salary</h2>
+        <input type="number" id="basic14" placeholder="Basic" />
+        <input type="number" id="hra14" placeholder="HRA" />
+        <input type="number" id="da14" placeholder="DA" />
+        <button onclick="q14()">Calculate</button>
+        <div class="out" id="out14"></div>
+      </div>
+
+      <div class="card">
+        <h2>15. Swap Using Third Variable</h2>
+        <input type="number" id="a15" placeholder="A" />
+        <input type="number" id="b15" placeholder="B" />
+        <button onclick="q15()">Swap</button>
+        <div class="out" id="out15"></div>
+      </div>
+
+      <div class="card">
+        <h2>16. Swap Without Third Variable</h2>
+        <input type="number" id="a16" placeholder="A" />
+        <input type="number" id="b16" placeholder="B" />
+        <button onclick="q16()">Swap</button>
+        <div class="out" id="out16"></div>
+      </div>
+    </div>
+
+    <script>
+      function q1() {
+        var a = Number(document.getElementById("a1").value);
+        var b = Number(document.getElementById("b1").value);
+        var c = Number(document.getElementById("c1").value);
+        document.getElementById("out1").innerText =
+          "Average = " + (a + b + c) / 3;
+      }
+
+      function q2() {
+        var a = Number(document.getElementById("a2").value);
+        var b = Number(document.getElementById("b2").value);
+        var c = Number(document.getElementById("c2").value);
+        var avg = (a + b + c) / 3;
+        document.getElementById("out2").innerText = "Average = " + avg;
+      }
+
+      function q3() {
+        var n = Number(document.getElementById("n3").value);
+        var sum = (n * (n + 1)) / 2;
+        document.getElementById("out3").innerText = "Sum = " + sum;
+      }
+
+      function q4() {
+        var n = Number(document.getElementById("n4").value);
+        var avg = (n + 1) / 2;
+        document.getElementById("out4").innerText = "Average = " + avg;
+      }
+
+      function q5() {
+        var cp = Number(document.getElementById("cp5").value);
+        var sp = Number(document.getElementById("sp5").value);
+        var percent = ((sp - cp) / cp) * 100;
+        document.getElementById("out5").innerText =
+          "Profit % = " + percent.toFixed(2);
+      }
+
+      function q6() {
+        var p = Number(document.getElementById("p6").value);
+        var r = Number(document.getElementById("r6").value);
+        var t = Number(document.getElementById("t6").value);
+        var si = (p * r * t) / 100;
+        document.getElementById("out6").innerText = "Simple Interest = " + si;
+      }
+
+      function q7() {
+        var a = Number(document.getElementById("ang1").value);
+        var b = Number(document.getElementById("ang2").value);
+        var c = 180 - a - b;
+        document.getElementById("out7").innerText =
+          "Missing Angle = " + c + "°";
+      }
+
+      function q8() {
+        var n = Number(document.getElementById("n8").value);
+        document.getElementById("out8").innerText = "Last Digit = " + (n % 10);
+      }
+
+      function q9() {
+        var n = Number(document.getElementById("n9").value);
+        var result = (n / 10) | 0;
+        document.getElementById("out9").innerText = "Result = " + result;
+      }
+
+      function q10() {
+        var n = Number(document.getElementById("n10").value);
+        var result = (n / 100) | 0;
+        document.getElementById("out10").innerText = "First Digit = " + result;
+      }
+
+      function q11() {
+        var n = Number(document.getElementById("n11").value);
+        var result = (n / 10000) | 0;
+        document.getElementById("out11").innerText = "First Digit = " + result;
+      }
+
+      function q12() {
+        var c = Number(document.getElementById("c12").value);
+        var f = (c * 9) / 5 + 32;
+        document.getElementById("out12").innerText = "Fahrenheit = " + f;
+      }
+
+      function q13() {
+        var f = Number(document.getElementById("f13").value);
+        var c = ((f - 32) * 5) / 9;
+        document.getElementById("out13").innerText =
+          "Celsius = " + c.toFixed(2);
+      }
+
+      function q14() {
+        var basic = Number(document.getElementById("basic14").value);
+        var hra = Number(document.getElementById("hra14").value);
+        var da = Number(document.getElementById("da14").value);
+        document.getElementById("out14").innerText =
+          "Gross Salary = " + (basic + hra + da);
+      }
+
+      function q15() {
+        var a = Number(document.getElementById("a15").value);
+        var b = Number(document.getElementById("b15").value);
+        var temp = a;
+        a = b;
+        b = temp;
+        document.getElementById("out15").innerText = "A = " + a + ", B = " + b;
+      }
+
+      function q16() {
+        var a = Number(document.getElementById("a16").value);
+        var b = Number(document.getElementById("b16").value);
+        a = a + b;
+        b = a - b;
+        a = a - b;
+        document.getElementById("out16").innerText = "A = " + a + ", B = " + b;
+      }
+    </script>
+  </body>
+</html>

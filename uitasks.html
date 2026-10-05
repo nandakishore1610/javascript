@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>JavaScript Loop</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f6f9;
+        color: #222;
+      }
+
+      header {
+        background: #1e293b;
+        color: white;
+        text-align: center;
+        padding: 25px;
+      }
+
+      header h1 {
+        margin: 0 0 8px;
+      }
+
+      header p {
+        margin: 0;
+        color: #cbd5e1;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: 30px auto;
+      }
+
+      .card {
+        background: white;
+        margin-bottom: 25px;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #2563eb;
+      }
+
+      .card h2 {
+        margin-top: 0;
+        color: #1e3a8a;
+      }
+
+      .description {
+        color: #64748b;
+        margin-bottom: 20px;
+      }
+
+      .input-group {
+        margin-bottom: 12px;
+      }
+
+      label {
+        display: inline-block;
+        min-width: 120px;
+        font-weight: bold;
+      }
+
+      input {
+        padding: 9px;
+        width: 180px;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        font-size: 15px;
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 10px 18px;
+        border: none;
+        border-radius: 6px;
+        background: #2563eb;
+        color: white;
+        cursor: pointer;
+        font-size: 15px;
+      }
+
+      button:hover {
+        background: #1d4ed8;
+      }
+
+      .output {
+        margin-top: 18px;
+        padding: 15px;
+        background: #0f172a;
+        color: #38bdf8;
+        border-radius: 8px;
+        min-height: 45px;
+        white-space: pre-wrap;
+        font-family: Consolas, monospace;
+      }
+
+      .concept {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 3px;
+        background: #dbeafe;
+        color: #1d4ed8;
+        border-radius: 20px;
+        font-size: 13px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 25px;
+        background: #1e293b;
+        color: white;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>JavaScript Loop</h1>
+      <p>
+        Practice for loop, while loop, do...while, nested loops, break and
+        continue
+      </p>
+    </header>
+
+    <div class="container">
+      <!-- 1 -->
+      <div class="card">
+        <h2>1. Print "Hi!" 5 Times</h2>
+        <p class="description">Uses a <b>for loop</b>.</p>
+
+        <button onclick="program1()">Run Program</button>
+
+        <div id="output1" class="output"></div>
+      </div>
+
+      <!-- 2 -->
+      <div class="card">
+        <h2>2. Print Numbers from 11 to 15</h2>
+
+        <label>Starting Number:</label>
+        <input type="number" id="start2" value="10" />
+
+        <button onclick="program2()">Run Program</button>
+
+        <div id="output2" class="output"></div>
+      </div>
+
+      <!-- 3 -->
+      <div class="card">
+        <h2>3. Print Numbers with Step 5</h2>
+
+        <label>Start:</label>
+        <input type="number" id="start3" value="8" />
+
+        <label>End:</label>
+        <input type="number" id="end3" value="28" />
+
+        <button onclick="program3()">Run Program</button>
+
+        <div id="output3" class="output"></div>
+      </div>
+
+      <!-- 4 -->
+      <div class="card">
+        <h2>4. Reverse Counting</h2>
+
+        <label>Start:</label>
+        <input type="number" id="start4" value="20" />
+
+        <label>End:</label>
+        <input type="number" id="end4" value="16" />
+
+        <button onclick="program4()">Run Program</button>
+
+        <div id="output4" class="output"></div>
+      </div>
+
+      <!-- 5 -->
+      <div class="card">
+        <h2>5. While Loop: Print 1 to N</h2>
+
+        <label>Enter N:</label>
+        <input type="number" id="n5" value="5" />
+
+        <button onclick="program5()">Run Program</button>
+
+        <div id="output5" class="output"></div>
+      </div>
+
+      <!-- 6 -->
+      <div class="card">
+        <h2>6. Multiples of 10</h2>
+
+        <label>Start:</label>
+        <input type="number" id="start6" value="10" />
+
+        <label>End:</label>
+        <input type="number" id="end6" value="50" />
+
+        <button onclick="program6()">Run Program</button>
+
+        <div id="output6" class="output"></div>
+      </div>
+
+      <!-- 7 -->
+      <div class="card">
+        <h2>7. While Loop with Step 3</h2>
+
+        <label>Start:</label>
+        <input type="number" id="start7" value="4" />
+
+        <label>End:</label>
+        <input type="number" id="end7" value="16" />
+
+        <button onclick="program7()">Run Program</button>
+
+        <div id="output7" class="output"></div>
+      </div>
+
+      <!-- 8 -->
+      <div class="card">
+        <h2>8. Reverse While Loop</h2>
+
+        <label>Start:</label>
+        <input type="number" id="start8" value="10" />
+
+        <label>End:</label>
+        <input type="number" id="end8" value="1" />
+
+        <button onclick="program8()">Run Program</button>
+
+        <div id="output8" class="output"></div>
+      </div>
+
+      <!-- 9 -->
+      <div class="card">
+        <h2>9. Reverse Counting with Step 5</h2>
+
+        <label>Start:</label>
+        <input type="number" id="start9" value="95" />
+
+        <label>End:</label>
+        <input type="number" id="end9" value="80" />
+
+        <button onclick="program9()">Run Program</button>
+
+        <div id="output9" class="output"></div>
+      </div>
+
+      <!-- 10 -->
+      <div class="card">
+        <h2>10. Sum from 2 to 6</h2>
+
+        <label>Start:</label>
+        <input type="number" id="start10" value="2" />
+
+        <label>End:</label>
+        <input type="number" id="end10" value="6" />
+
+        <button onclick="program10()">Calculate Sum</button>
+
+        <div id="output10" class="output"></div>
+      </div>
+
+      <!-- 11 -->
+      <div class="card">
+        <h2>11. Sum from 1 to N</h2>
+
+        <label>Enter N:</label>
+        <input type="number" id="n11" value="3" />
+
+        <button onclick="program11()">Calculate Sum</button>
+
+        <div id="output11" class="output"></div>
+      </div>
+
+      <!-- 12 -->
+      <div class="card">
+        <h2>12. Factorial of N</h2>
+
+        <label>Enter N:</label>
+        <input type="number" id="n12" value="5" />
+
+        <button onclick="program12()">Calculate Factorial</button>
+
+        <div id="output12" class="output"></div>
+      </div>
+
+      <!-- 13 -->
+      <div class="card">
+        <h2>13. Nested Loop Pattern</h2>
+
+        <p class="description">Prints the numbers 5 4 3 2 three times.</p>
+
+        <button onclick="program13()">Run Program</button>
+
+        <div id="output13" class="output"></div>
+      </div>
+
+      <!-- 14 -->
+      <div class="card">
+        <h2>14. Nested Loop Number Pattern</h2>
+
+        <label>Rows:</label>
+        <input type="number" id="rows14" value="3" />
+
+        <label>Columns:</label>
+        <input type="number" id="cols14" value="3" />
+
+        <button onclick="program14()">Run Program</button>
+
+        <div id="output14" class="output"></div>
+      </div>
+
+      <!-- 15 -->
+      <div class="card">
+        <h2>15. Print Even Numbers</h2>
+
+        <label>Enter N:</label>
+        <input type="number" id="n15" value="10" />
+
+        <button onclick="program15()">Run Program</button>
+
+        <div id="output15" class="output"></div>
+      </div>
+
+      <!-- 16 -->
+      <div class="card">
+        <h2>16. Factorial of Every Number</h2>
+
+        <label>Enter N:</label>
+        <input type="number" id="n16" value="5" />
+
+        <button onclick="program16()">Run Program</button>
+
+        <div id="output16" class="output"></div>
+      </div>
+
+      <!-- 17 -->
+      <div class="card">
+        <h2>17. Continue and Break</h2>
+
+        <p class="description">Skip 3 and stop when the number reaches 8.</p>
+
+        <button onclick="program17()">Run Program</button>
+
+        <div id="output17" class="output"></div>
+      </div>
+
+      <!-- 18 -->
+      <div class="card">
+        <h2>18. While Loop with Break</h2>
+
+        <p class="description">Print numbers until 3, then stop.</p>
+
+        <button onclick="program18()">Run Program</button>
+
+        <div id="output18" class="output"></div>
+      </div>
+
+      <!-- 19 -->
+      <div class="card">
+        <h2>19. First Number Divisible by 5</h2>
+
+        <label>Start:</label>
+        <input type="number" id="start19" value="22" />
+
+        <label>End:</label>
+        <input type="number" id="end19" value="30" />
+
+        <button onclick="program19()">Find Number</button>
+
+        <div id="output19" class="output"></div>
+      </div>
+
+      <!-- 20 -->
+      <div class="card">
+        <h2>20. While Loop: First Number Divisible by 5</h2>
+
+        <label>Start:</label>
+        <input type="number" id="start20" value="22" />
+
+        <label>End:</label>
+        <input type="number" id="end20" value="30" />
+
+        <button onclick="program20()">Find Number</button>
+
+        <div id="output20" class="output"></div>
+      </div>
+
+      <!-- 21 -->
+      <div class="card">
+        <h2>21. First Number Divisible by 4</h2>
+
+        <label>Start:</label>
+        <input type="number" id="start21" value="59" />
+
+        <label>End:</label>
+        <input type="number" id="end21" value="50" />
+
+        <button onclick="program21()">Find Number</button>
+
+        <div id="output21" class="output"></div>
+      </div>
+
+      <!-- 22 -->
+      <div class="card">
+        <h2>22. Break After 4 Iterations</h2>
+
+        <label>Start:</label>
+        <input type="number" id="start22" value="1" />
+
+        <label>End:</label>
+        <input type="number" id="end22" value="10" />
+
+        <label>Count:</label>
+        <input type="number" id="count22" value="4" />
+
+        <button onclick="program22()">Run Program</button>
+
+        <div id="output22" class="output"></div>
+      </div>
+
+      <!-- 23 -->
+      <div class="card">
+        <h2>23. Find First 2 Even Numbers</h2>
+
+        <label>Start:</label>
+        <input type="number" id="start23" value="25" />
+
+        <label>End:</label>
+        <input type="number" id="end23" value="13" />
+
+        <button onclick="program23()">Find Numbers</button>
+
+        <div id="output23" class="output"></div>
+      </div>
+
+      <!-- 24 -->
+      <div class="card">
+        <h2>24. Skip Unlucky Years</h2>
+
+        <label>Start Year:</label>
+        <input type="number" id="start24" value="2013" />
+
+        <label>End Year:</label>
+        <input type="number" id="end24" value="2026" />
+
+        <label>Unlucky Year 1:</label>
+        <input type="number" id="unlucky241" value="2019" />
+
+        <label>Unlucky Year 2:</label>
+        <input type="number" id="unlucky242" value="2023" />
+
+        <button onclick="program24()">Run Program</button>
+
+        <div id="output24" class="output"></div>
+      </div>
+
+      <!-- 25 -->
+      <div class="card">
+        <h2>25. Do...While Loop</h2>
+
+        <label>Start:</label>
+        <input type="number" id="start25" value="1" />
+
+        <label>End:</label>
+        <input type="number" id="end25" value="5" />
+
+        <button onclick="program25()">Run Program</button>
+
+        <div id="output25" class="output"></div>
+      </div>
+
+      <!-- 26 -->
+      <div class="card">
+        <h2>26. Do...While Reverse Loop</h2>
+
+        <label>Start:</label>
+        <input type="number" id="start26" value="10" />
+
+        <label>End:</label>
+        <input type="number" id="end26" value="5" />
+
+        <button onclick="program26()">Run Program</button>
+
+        <div id="output26" class="output"></div>
+      </div>
+    </div>
+
+    <footer>JavaScript Loop Practice</footer>
+
+    <script>
+      // 1
+      function program1() {
+        let output = "";
+
+        for (let i = 0; i < 5; i++) {
+          output += "Hi!\n";
+        }
+
+        document.getElementById("output1").textContent = output;
+      }
+
+      // 2
+      function program2() {
+        let start = Number(document.getElementById("start2").value);
+        let output = "";
+
+        for (let i = start; i < start + 5; i++) {
+          output += i + 1 + "\n";
+        }
+
+        document.getElementById("output2").textContent = output;
+      }
+
+      // 3
+      function program3() {
+        let start = Number(document.getElementById("start3").value);
+        let end = Number(document.getElementById("end3").value);
+
+        let output = "";
+
+        for (let i = start; i <= end; i += 5) {
+          output += i + 1 + "\n";
+        }
+
+        document.getElementById("output3").textContent = output;
+      }
+
+      // 4
+      function program4() {
+        let start = Number(document.getElementById("start4").value);
+        let end = Number(document.getElementById("end4").value);
+
+        let output = "";
+
+        for (let i = start; i >= end; i--) {
+          output += i + "\n";
+        }
+
+        document.getElementById("output4").textContent = output;
+      }
+
+      // 5
+      function program5() {
+        let n = Number(document.getElementById("n5").value);
+        let i = 1;
+        let output = "";
+
+        while (i <= n) {
+          output += i + "\n";
+          i++;
+        }
+
+        document.getElementById("output5").textContent = output;
+      }
+
+      // 6
+      function program6() {
+        let i = Number(document.getElementById("start6").value);
+        let end = Number(document.getElementById("end6").value);
+
+        let output = "";
+
+        while (i <= end) {
+          output += i + "\n";
+          i += 10;
+        }
+
+        document.getElementById("output6").textContent = output;
+      }
+
+      // 7
+      function program7() {
+        let i = Number(document.getElementById("start7").value);
+        let end = Number(document.getElementById("end7").value);
+
+        let output = "";
+
+        while (i <= end) {
+          output += i + "\n";
+          i += 3;
+        }
+
+        document.getElementById("output7").textContent = output;
+      }
+
+      // 8
+      function program8() {
+        let i = Number(document.getElementById("start8").value);
+        let end = Number(document.getElementById("end8").value);
+
+        let output = "";
+
+        while (i > end) {
+          output += i + "\n";
+          i--;
+        }
+
+        document.getElementById("output8").textContent = output;
+      }
+
+      // 9
+      function program9() {
+        let i = Number(document.getElementById("start9").value);
+        let end = Number(document.getElementById("end9").value);
+
+        let output = "";
+
+        while (i >= end) {
+          output += i + "\n";
+          i -= 5;
+        }
+
+        document.getElementById("output9").textContent = output;
+      }
+
+      // 10
+      function program10() {
+        let start = Number(document.getElementById("start10").value);
+        let end = Number(document.getElementById("end10").value);
+
+        let sum = 0;
+        let i = start;
+
+        while (i <= end) {
+          sum += i;
+          i++;
+        }
+
+        document.getElementById("output10").textContent = "Sum = " + sum;
+      }
+
+      // 11
+      function program11() {
+        let n = Number(document.getElementById("n11").value);
+
+        let sum = 0;
+        let i = 1;
+
+        while (i <= n) {
+          sum += i;
+          i++;
+        }
+
+        document.getElementById("output11").textContent = "Sum = " + sum;
+      }
+
+      // 12
+      function program12() {
+        let n = Number(document.getElementById("n12").value);
+
+        let fact = 1;
+
+        for (let i = 2; i <= n; i++) {
+          fact *= i;
+        }
+
+        document.getElementById("output12").textContent =
+          "Factorial of " + n + " = " + fact;
+      }
+
+      // 13
+      function program13() {
+        let output = "";
+
+        for (let i = 0; i < 3; i++) {
+          for (let j = 5; j > 1; j--) {
+            output += j + " ";
+          }
+
+          output += "\n";
+        }
+
+        document.getElementById("output13").textContent = output;
+      }
+
+      // 14
+      function program14() {
+        let rows = Number(document.getElementById("rows14").value);
+        let cols = Number(document.getElementById("cols14").value);
+
+        let output = "";
+
+        for (let i = 0; i < rows; i++) {
+          for (let j = 1; j <= cols; j++) {
+            output += j;
+          }
+
+          output += "\n";
+        }
+
+        document.getElementById("output14").textContent = output;
+      }
+
+      // 15
+      function program15() {
+        let n = Number(document.getElementById("n15").value);
+
+        let output = "";
+
+        for (let i = 1; i <= n; i++) {
+          if (i % 2 === 0) {
+            output += i + "\n";
+          }
+        }
+
+        document.getElementById("output15").textContent = output;
+      }
+
+      // 16
+      function program16() {
+        let n = Number(document.getElementById("n16").value);
+
+        let output = "";
+
+        for (let i = 1; i < n; i++) {
+          let fact = 1;
+
+          for (let j = 2; j <= i; j++) {
+            fact *= j;
+          }
+
+          output += "Factorial of " + i + " = " + fact + "\n";
+        }
+
+        document.getElementById("output16").textContent = output;
+      }
+
+      // 17
+      function program17() {
+        let output = "";
+
+        for (let i = 1; i <= 10; i++) {
+          if (i === 3) {
+            continue;
+          }
+
+          if (i === 8) {
+            break;
+          }
+
+          output += i + "\n";
+        }
+
+        document.getElementById("output17").textContent = output;
+      }
+
+      // 18
+      function program18() {
+        let i = 1;
+        let output = "";
+
+        while (i <= 5) {
+          output += i + "\n";
+
+          if (i === 3) {
+            break;
+          }
+
+          i++;
+        }
+
+        document.getElementById("output18").textContent = output;
+      }
+
+      // 19
+      function program19() {
+        let start = Number(document.getElementById("start19").value);
+        let end = Number(document.getElementById("end19").value);
+
+        let output = "No number found";
+
+        for (let i = start; i <= end; i++) {
+          if (i % 5 === 0) {
+            output = "First number divisible by 5 = " + i;
+            break;
+          }
+        }
+
+        document.getElementById("output19").textContent = output;
+      }
+
+      // 20
+      function program20() {
+        let i = Number(document.getElementById("start20").value);
+        let end = Number(document.getElementById("end20").value);
+
+        let output = "No number found";
+
+        while (i <= end) {
+          if (i % 5 === 0) {
+            output = "First number divisible by 5 = " + i;
+            break;
+          }
+
+          i++;
+        }
+
+        document.getElementById("output20").textContent = output;
+      }
+
+      // 21
+      function program21() {
+        let start = Number(document.getElementById("start21").value);
+        let end = Number(document.getElementById("end21").value);
+
+        let output = "No number found";
+
+        for (let i = start; i >= end; i--) {
+          if (i % 4 === 0) {
+            output = "First number divisible by 4 = " + i;
+            break;
+          }
+        }
+
+        document.getElementById("output21").textContent = output;
+      }
+
+      // 22
+      function program22() {
+        let start = Number(document.getElementById("start22").value);
+        let end = Number(document.getElementById("end22").value);
+        let requiredCount = Number(document.getElementById("count22").value);
+
+        let count = 0;
+        let output = "";
+
+        for (let i = start; i <= end; i++) {
+          count++;
+
+          if (count === requiredCount) {
+            break;
+          }
+
+          output += i + "\n";
+        }
+
+        document.getElementById("output22").textContent = output;
+      }
+
+      // 23
+      function program23() {
+        let start = Number(document.getElementById("start23").value);
+        let end = Number(document.getElementById("end23").value);
+
+        let count = 0;
+        let output = "";
+
+        for (let i = start; i >= end; i--) {
+          if (i % 2 === 0) {
+            count++;
+
+            output += i + "\n";
+
+            if (count === 2) {
+              break;
+            }
+          }
+        }
+
+        document.getElementById("output23").textContent = output;
+      }
+
+      // 24
+      function program24() {
+        let start = Number(document.getElementById("start24").value);
+        let end = Number(document.getElementById("end24").value);
+
+        let unlucky1 = Number(document.getElementById("unlucky241").value);
+        let unlucky2 = Number(document.getElementById("unlucky242").value);
+
+        let output = "";
+
+        let i = start;
+
+        while (i <= end) {
+          if (i === unlucky1 || i === unlucky2) {
+            i++;
+            continue;
+          }
+
+          output += i + "\n";
+
+          i++;
+        }
+
+        document.getElementById("output24").textContent = output;
+      }
+
+      // 25
+      function program25() {
+        let i = Number(document.getElementById("start25").value);
+        let end = Number(document.getElementById("end25").value);
+
+        let output = "";
+
+        do {
+          output += i + "\n";
+          i++;
+        } while (i <= end);
+
+        document.getElementById("output25").textContent = output;
+      }
+
+      // 26
+      function program26() {
+        let i = Number(document.getElementById("start26").value);
+        let end = Number(document.getElementById("end26").value);
+
+        let output = "";
+
+        do {
+          output += i + "\n";
+          i--;
+        } while (i >= end);
+
+        document.getElementById("output26").textContent = output;
+      }
+    </script>
+  </body>
+</html>
